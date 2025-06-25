@@ -14,7 +14,6 @@ jobs:
           name: code
           path: .
           include-hidden-files: true
-jobs:
   Linting:
     runs-on: ubuntu-latest
     needs: [Build]
