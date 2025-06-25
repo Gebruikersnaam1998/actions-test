@@ -1,5 +1,8 @@
 name: Main workflow
 on: push
+env: # Set the secret as an input
+  docker_username: gebruikersnaam1998 
+  docker_password: ${{ secrets.GITHUB_TOKEN }} #Nees to be set to be made available to the workflow
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -35,3 +38,14 @@ jobs:
     needs: [Build]
     permissions:
       packages: write
+    steps: 
+    - name: Download code
+      uses: actions/download-artifact@v4
+      with:
+        name: code
+        path: .
+    - name: Download code
+      uses: actions/download-artifact@v4
+      with:
+        name: code
+        path: .
